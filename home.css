@@ -1,0 +1,30 @@
+body{
+    background-color: white;
+    text-align: center;
+}
+
+nav{
+    background-color: rgb(87, 9, 87);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: sticky;
+    top: 0px;
+    border-radius: 5;
+}
+
+
+a{
+    text-decoration:none;
+    color: white;
+    padding-right: 20px;
+}
+
+.logo{
+    padding-left: 20px;
+    padding-right: 50%;
+}
+
+img{
+    height: 100px;
+}
