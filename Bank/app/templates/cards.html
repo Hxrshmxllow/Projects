@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/cards.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/profile.css') }}"> 
+    <script src="{{ url_for('static', filename='js/nav.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/profile.js') }}" defer></script>
+    <title>My Cards</title>
+</head>
+<body>
+    <div class="navDiv">
+    </div>
+    <div class="rightDiv">
+        <div class="profileDiv">
+        </div>
+        <div class="debitCard">
+            <div class="cardFront">
+                <p class="cardType">Debit Card</p>
+                <img src="static/img/cards/chip.png" class="chip">
+            </div>
+            <div class="cardBack">
+                <div class="blackTab"></div>
+                <p class="cardNumber">1234 5678 9101 5121</p>
+                <br>
+                <p class="validity">Valid Thru: 00/00</p> 
+                <p class="secCode">Sec Code: 000</p>
+                <br>
+                <p class="cardHolder">JOHN M DOE</p>
+            </div>
+        </div>
+        <div class="creditCard">
+            <div class="cardFront">
+                <p class="cardType">Credit Card</p>
+                <img src="static/img/cards/chip.png" class="chip">
+            </div>
+            <div class="cardBack">
+                <div class="blackTab"></div>
+                <p class="cardNumber">1234 5678 9101 5121</p>
+                <br>
+                <p class="validity">Valid Thru: 00/00</p> 
+                <p class="secCode">Sec Code: 000</p>
+                <br>
+                <p class="cardHolder">JOHN M DOE</p>
+            </div>
+        </div>
+    </div>
+</body>

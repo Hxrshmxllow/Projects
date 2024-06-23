@@ -1,0 +1,70 @@
+body{
+    margin: 0;
+    height: 100%;
+    min-height: 100vh;
+    color: white;
+    font-family: sans-serif;
+}
+
+#accounts{
+    background-color: blue;
+}
+
+.rightDiv{
+    background-color: #dee0e0;
+    float: right;
+    width: 78%;
+    min-height:100vh;
+    height: 100%; 
+    text-align: center;
+}
+
+.profileDiv{
+    width: 100%;
+}
+
+.bottomDiv{
+    display: inline;
+    width: 100%;
+    margin-top: 25%;
+}
+
+.savingsDiv{
+    display: inline;
+    width: 35%;
+    height: 40vh;
+    float: left;
+    margin-left: 10%;
+    margin-top: 12.5%;
+    box-shadow: 0px 8px 8px #000;
+    background-color: #181C20;
+    border-radius: 10px;
+}
+
+.checkingsDiv{
+    display: inline;
+    width: 35%;
+    height: 40vh;
+    box-shadow: 0px 8px 8px #000;
+    background-color: #181C20;
+    float: right;
+    margin-right: 10%;
+    margin-top: 12.5%;
+    border-radius: 10px;
+}
+
+.accountButton{
+    width: 50%;
+    padding: 1vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    border: none;
+    color: #181C20;
+    background-color: #dee0e0;
+}
+
+.accountButton:hover{
+    background-color: blue;
+    color: white;
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}

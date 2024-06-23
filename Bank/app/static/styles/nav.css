@@ -1,0 +1,54 @@
+.navDiv{
+    background-color: #181C20;
+    float: left;
+    width: 22%;
+    height: 100vh;
+}
+
+.logo{
+    top: 0;
+    display: inline;
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
+
+.navLogo{
+    display: inline;
+    vertical-align: middle; 
+    height: 5vh;
+}
+
+.navItem{
+    padding: 10px;
+    margin-top: 1vh;
+    display: block;
+    width: 85%;
+    float: right;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: none;
+    text-align: left;
+    padding-bottom: 2.5vh;
+    height: 4vh;
+    font-family: "Gill Sans", sans-serif;
+}
+
+a{
+    display: inline;
+    text-decoration: none;
+    color: white;
+    vertical-align: middle;
+}
+
+input{
+    display: hidden;
+}
+
+.icon{
+    width: 5vh;
+    padding: auto;
+}

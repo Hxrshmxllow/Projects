@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/login.css') }}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="loginDiv">
+        <form id="loginForm">
+            <input type="text" name="Username" id="Username" placeholder="Username" required>
+            <input type="password" name="Password" id="Password" placeholder="Password" required>
+            <input type="submit" value="Login" id="loginButton">
+            <a href='/' class="leftA">Forgot Credentials?</a>
+            <a href='/register' class="rightA">Register?</a>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>

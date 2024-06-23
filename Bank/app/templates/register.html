@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/register.css') }}">
+    <title>Register</title>
+</head>
+<body>
+    <div class="registerDiv">
+        <form id="registerForm">
+            <input type="text" name="Username" id="Username" placeholder="Username" required>
+            <input type="password" name="Password" id="Password" placeholder="Password" required>
+            <input type="submit" value="Register">
+            <a href='/register'>Already have an account? Login.</a>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</body>
