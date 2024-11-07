@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/accounts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/profile.css') }}"> 
+    <script src="{{ url_for('static', filename='js/nav.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/profile.js') }}" defer></script>
+    <title>Settings</title>
+</head>
+<body>
+    <div class="navDiv">
+    </div>
+    <div class="rightDiv">
+        <div class="profileDiv">
+        </div>
+        <div class='bottomDiv'>
+            <div class="savingsDiv">
+                <h3>Savings Account ending in 4612</h3>
+                <h4>Balance: $1217.12</h4>
+                <p>Available: $1100.12</p>
+                <a class="accountButton" href="/dashboard">Go to Account</a>
+            </div>
+            <div class="checkingsDiv">
+                <h3>Checkings Account ending in 1231</h3>
+                <h4>Balance: $2323.12</h4>
+                <p>Available: $1200.12</p>
+                <a class="accountButton" href="/dashboard">Go to Account</a>
+            </div>
+        </div>
+    </div>
+</body>

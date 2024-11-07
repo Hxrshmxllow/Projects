@@ -1,0 +1,25 @@
+.profileDiv{
+    box-sizing: border-box;
+    display: inline-block;
+    height: 10vh;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 0.5%;
+    box-shadow: 0 2px 2px -2px #dee0e0;
+}
+
+#safe-secure{
+    margin-top: -2vh;
+    float: left;
+    height: 15vh;
+    margin-left: 3vh;
+}
+
+#profile-picture{
+    float: right;
+    border-radius: 50%;
+    height: 6vh;
+    width: 6vh;
+    margin-right: 7vh;
+    margin-top: 1.5vh;
+}

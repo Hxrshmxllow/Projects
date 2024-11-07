@@ -1,0 +1,124 @@
+body{
+    margin: 0;
+    height: 100%;
+    min-height: 100vh;
+    color: white;
+    font-family: sans-serif;
+}
+
+#myCards{
+    background-color: blue;
+}
+
+.rightDiv{
+    background-color: #dee0e0;
+    float: right;
+    width: 78%;
+    min-height:100vh;
+    height: 100%; 
+    text-align: center;
+}
+
+.profileDiv{
+    width: 100%;
+}
+
+.debitCard{
+    width: 100%;
+    display: inline-block;
+}
+
+.creditCard{
+    width: 100%;
+    display: inline-block;
+}
+
+.cardFront{
+    display: inline;
+    margin-left: 5%;
+    width: 39%;
+    height: 35vh;
+    float: left;
+    border-radius: 5%;
+    margin-bottom: 5%;
+    background-image: url('/static/img/cards/background.jpg');
+    background-size: cover;
+}
+
+.cardBack{
+    display: inline;
+    margin-left: 10%;
+    width: 39%;
+    height: 35vh;
+    border-radius: 5%;
+    float: right;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    background-image: url('/static/img/cards/background.jpg');
+    background-size: cover;
+}
+
+.chip{
+    float: left;
+    width: 9vh;
+    margin-top: 25%;
+    margin-left: 10%;
+}
+
+.blackTab{
+    width: 100%;
+    height: 6vh;
+    background-color: black;
+    margin-top: 4vh;
+}
+
+.cardNumber{
+    margin-top: 1.5vh;
+    float: left;
+    margin-left: 5vh;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 21px;
+    font-weight: 500;
+    word-spacing: 8px;
+}
+
+.validity{
+    margin-top: -1vh;
+    float: left;
+    margin-left: 5vh;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    word-spacing: 2px;
+}
+
+.secCode{
+    margin-top: -1vh;
+    float: right;
+    margin-right: 9vh;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    word-spacing: 2px;
+}
+
+.cardHolder{
+    margin-top: 0vh;
+    float: left;
+    margin-left: 5vh;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 17px;
+    font-weight: 525;
+    word-spacing: 2px;
+}
+
+
+.cardType{
+    float: right;
+    margin-right: 6vh;
+    margin-top: 3vh;
+}

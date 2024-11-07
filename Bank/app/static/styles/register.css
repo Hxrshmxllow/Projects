@@ -1,0 +1,41 @@
+body{
+    background-color: #303841;
+    color: #f2f2f2;
+}
+
+.registerDiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 275px;
+    background-color: #47555e;
+    text-align: center;
+    border-radius: 2px;
+    border: solid 1.25px #f2f2f2;
+}
+
+form{
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 50px;
+    margin: 0 auto;
+}
+
+input{
+    display: block;
+    width: 300px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    border: solid 1.25px #f2f2f2;
+    margin: 10px;
+    padding: 10px;
+}
+
+a{
+    display: inline;
+    margin: 10px;
+    color:inherit;
+    text-decoration:none;
+}

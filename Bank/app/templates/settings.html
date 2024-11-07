@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/settings.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/profile.css') }}"> 
+    <script src="{{ url_for('static', filename='js/nav.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/profile.js') }}" defer></script>
+    <title>Settings</title>
+</head>
+<body>
+    <div class="navDiv">
+    </div>
+    <div class="rightDiv">
+        <div class="profileDiv">
+        </div>
+        <div class="infoDiv">
+            <form class="infoForm">
+                <input type="file" id="profilePicture" class="profilePicture">
+                <label for="profilePicture">
+                    <div class="addProfilePicture">
+                        <h3>Add Profile Picture</h3>
+                        <img src="{{ url_for('static', filename='img/settings/upload.png') }}" class="upload" id="upload">
+                    </div>
+                </label>
+                <h3>Personal Info</h3>
+                <input type="text" id="firstName" placeholder="First Name" class="info" required>
+                <input type="text" id="lastName" placeholder="Last Name" class="info" required>
+                <input type="text" id="birthdate" placeholder="Birth Date eg. MM/DD/YYYY" class="info" required>
+                <input type="email" id="email" placeholder="Email Address" class="info" required>
+                <input type="number" id="phoneNumber" placeholder="Phone Number" class="info" required>
+                <h3>Address</h3>
+                <input type="text" id="address" placeholder="Address Line 1" class="info" required>
+                <input type="text" id="address" placeholder="Address Line 2" class="info">
+                <input type="text" id="address" placeholder="City" class="info" required>
+                <input type="text" id="address" placeholder="State" class="info" required>
+                <input type="number" id="address" placeholder="Zip Code" class="info" required>
+                <input type="submit" id="submit"  value="Update Profile" class="info">
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+</body>
