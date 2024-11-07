@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome to NobleMart!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        const adminHomeUrl = "{{ url_for('admin_dashboard') }}";
+        const homeUrl = "{{ url_for('home') }}";
+        const ordersUrl = "{{ url_for('admin_orders') }}";
+        const upcUrl = "{{ url_for('upc_lookup') }}";
+        const inventoryUrl =  "{{ url_for('view_inventory') }}"
+        const logoUrl = "{{ url_for('static', filename='img/logo.png') }}";
+    </script>
+    <script type="module">
+        import { createNavbar } from "./static/js/admin-nav.js";
+        createNavbar();  
+    </script>
+    <script type="module">
+        import { createFooter } from './static/js/footer.js';
+        createFooter();
+    </script>
+</body>
+</html>

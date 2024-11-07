@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome to NobleMart!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white dark:bg-white min-h-screen flex items-center justify-center">
+    <script type="text/javascript">
+        const adminHomeUrl = "{{ url_for('admin_dashboard') }}";
+        const homeUrl = "{{ url_for('home') }}";
+        const ordersUrl = "{{ url_for('admin_orders') }}";
+        const upcUrl = "{{ url_for('upc_lookup') }}";
+        const inventoryUrl =  "{{ url_for('view_inventory') }}"
+        const logoUrl = "{{ url_for('static', filename='img/logo.png') }}";
+    </script>
+    <script type="module">
+        import { createNavbar } from "./static/js/admin-nav.js";
+        createNavbar();  
+    </script>
+    <div class="min-h-screen flex items-center justify-center bg-white dark:white">
+        <div class="w-full max-w-2xl bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 mx-4 mt-28">
+            <form action="{{ url_for('admin_inventory') }}" method="POST" enctype="multipart/form-data">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Product Information</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brand</label>
+                        <input type="text" id="brand" name="brand" value="{{ brand }}"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" 
+                            placeholder="Enter the brand" required>
+                    </div>
+                    <div>
+                        <label for="collection" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Collection</label>
+                        <select id="collection" name="collection" 
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 h-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                            <option selected>Choose a collection</option>
+                            <option value="mens">Men's Collection</option>
+                            <option value="womens">Women's Collection</option>
+                            <option value="unisex">Unisex Collection</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="itemType" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Item Type</label>
+                        <select id="itemType" name="itemType" 
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 h-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                            <option selected>Choose a type</option>
+                            <option value="fragrance">Fragrance</option>
+                            <option value="gift set">Gift Set</option>
+                            <option value="deodorant">Deodorant</option>
+                            <option value="after shave">After Shave</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="size" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size</label>
+                    <input type="text" id="size" name="size" 
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" 
+                        placeholder="Enter the size" required>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="stock" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stock</label>
+                        <input type="number" id="stock" name="stock" 
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" 
+                            placeholder="Enter the stock quantity" required>
+                    </div>
+                    <div>
+                        <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                        <input type="number" min="1" step="any" id="price" name="price" 
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" 
+                            placeholder="Enter the price" required>
+                    </div>
+                </div>
+    
+                <div class="mb-6">
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                    <input type="text" id="name" name="name" value="{{ name }}"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" 
+                        placeholder="Enter the name" required>
+                </div>
+    
+                <div class="mb-6">
+                    <label for="desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                    <input type="text" id="desc" name="desc" value="{{ desc }}"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" 
+                        placeholder="Enter the description" required>
+                </div>
+    
+                <div class="mb-6 flex items-center space-x-4">
+                    <div class="w-1/2">
+                        <label for="img" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload Image</label>
+                        <input type="hidden" id="img" name="img" value="{{ img }}">
+                        <input type="file" id="new_img" name="new_img"
+                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
+                            onchange="updateHiddenInput(event)">
+                    </div>
+                    <div class="w-1/2">
+                        {% if img %}
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Preview</label>
+                            <img src="{{ img }}" alt="Product Image" class="w-full h-auto rounded-lg mb-4" id="imgPreview">
+                        {% endif %}
+                    </div>
+                </div>
+                <input type="hidden" id="upc_code" name="upc_code" value="{{ upc_code }}">
+                <button type="submit" 
+                    class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+    <script type="module">
+        import { createFooter } from './static/js/footer.js';
+        createFooter();
+    </script>
+    <script>
+        function updateHiddenInput(event) {
+        const file = event.target.files[0];
+        const imgPreview = document.getElementById('imgPreview');
+        const hiddenInput = document.getElementById('img');
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                imgPreview.src = e.target.result;
+                imgPreview.classList.remove('hidden');
+                hiddenInput.value = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+    </script>
+</body>
+</html>

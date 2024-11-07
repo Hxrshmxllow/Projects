@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome to NobleMart!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        const adminHomeUrl = "{{ url_for('admin_dashboard') }}";
+        const homeUrl = "{{ url_for('home') }}";
+        const ordersUrl = "{{ url_for('admin_orders') }}";
+        const upcUrl = "{{ url_for('upc_lookup') }}";
+        const inventoryUrl =  "{{ url_for('view_inventory') }}"
+        const logoUrl = "{{ url_for('static', filename='img/logo.png') }}";
+    </script>
+    <script type="module">
+        import { createNavbar } from "./static/js/admin-nav.js";
+        createNavbar();  
+    </script>
+    <div class="bg-gray-100 p-8">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-3xl font-bold mb-6">Admin Dashboard</h1>   
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Pending Orders Section -->
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-semibold mb-4">Pending Orders</h2>
+                    <div class="space-y-4">
+                        {% for item in pendingItems %}
+                        <div onclick="openModal('{{ item['order_item_id'] }}')" class="bg-gray-100 p-4 rounded-lg shadow cursor-pointer">
+                            <div class="flex items-center space-x-4">
+                                <img src="data:image/png;base64,{{ item['img'] | b64encode }}" alt="Item Image" class="w-16 h-16 object-cover rounded-lg">
+                                <div>
+                                    <h3 class="font-semibold">{{ item['brand'] }}</h3>
+                                    <p>Item: <span class="font-medium">{{ item['name'] }}</span></p>
+                                    <p>Quantity: <span class="font-medium">{{ item['quantity'] }}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <!-- Completed Orders Section -->
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-semibold mb-4">Completed Orders</h2>
+                    <div class="space-y-4">
+                        {% for item in completedItems %}
+                        <div onclick="openModal('{{ item['order_item_id'] }}')" class="bg-gray-100 p-4 rounded-lg shadow cursor-pointer">
+                            <div class="flex items-center space-x-4">
+                                <img src="data:image/png;base64,{{ item['img'] | b64encode }}" alt="Item Image" class="w-16 h-16 object-cover rounded-lg">
+                                <div>
+                                    <h3 class="font-semibold">{{ item['brand'] }}</h3>
+                                    <p>Item: <span class="font-medium">{{ item['name'] }}</span></p>
+                                    <p>Quantity: <span class="font-medium">{{ item['quantity'] }}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals for each item -->
+    {% for item in pendingItems %}
+    <div id="modal-{{ item['order_item_id'] }}" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white w-full max-w-lg p-6 rounded-lg shadow-lg relative">
+            <button onclick="closeModal('{{ item['order_item_id'] }}')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800">&times;</button>
+            <div class="mb-4">
+                <img src="data:image/png;base64,{{ item['img'] | b64encode }}" alt="Item Image" class="w-full h-48 object-contain rounded-lg mb-4">
+                <h3 class="text-2xl font-semibold">{{ item['name'] }}</h3>
+                <p class="text-gray-700">Brand: {{ item['brand'] }}</p>
+                <p class="text-gray-700">Price: ${{ item['price'] }}</p>
+                <p class="text-gray-700">Quantity: {{ item['quantity'] }}</p>
+            </div>
+            <div class="border-t pt-4 mt-4">
+                <h4 class="text-lg font-semibold">Shipping Info</h4>
+                <p class="text-gray-700">{{ item['first_name'] }} {{ item['last_name'] }}</p>
+                <p class="text-gray-700">
+                    Address: {{ item['address'] }}
+                    {% if item['apartment'] %}
+                      , {{ item['apartment'] }}
+                    {% endif %}
+                    , {{ item['city'] }}, {{ item['state'] }}, {{ item['country'] }}
+                </p>
+                <p class="text-gray-700">Phone: {{ item['phone'] }}</p>
+            </div>
+            <div class="mt-6">
+                <button onclick="completeOrder('{{ item['order_item_id'] }}')" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-lg">Complete Order</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <script type="module">
+        import { createFooter } from './static/js/footer.js';
+        createFooter();
+    </script>
+    <script>
+        function openModal(itemId) {
+            document.getElementById(`modal-${itemId}`).classList.remove('hidden');
+        }
+
+        function closeModal(itemId) {
+            document.getElementById(`modal-${itemId}`).classList.add('hidden');
+        }
+
+        function completeOrder(itemId) {
+            closeModal(itemId);
+            fetch('/admin-complete-order', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ item_id: itemId }),
+          })
+          .then(response => response.json())
+          .then(data => {
+              alert(data.message);
+              window.location.reload();
+          })
+          .catch(error => {
+              console.error('Error:', error);
+              alert('Failed to mark order as complete.');
+          });
+        }
+    </script>
+</body>
+</html>

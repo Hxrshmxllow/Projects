@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        const homeUrl = "{{ url_for('home') }}";
+        const signInUrl = "{{ url_for('sign_in') }}";
+        const logoUrl = "{{ url_for('static', filename='img/logo.png') }}";
+        const mensFragranceUrl = "{{ url_for('mens_fragrances') }}";
+        const cartUrl = "{{ url_for('cart') }}";
+        const womensFragranceUrl = "{{ url_for('womens_fragrances') }}";
+        const womensGiftSetUrl = "{{ url_for('womens_giftSets') }}";
+        const mensGiftSetUrl = "{{ url_for('mens_giftSets') }}";
+        const mensDeodorantUrl = "{{ url_for('mens_deodorants') }}";
+        const womensDeodorantUrl = "{{ url_for('womens_deodorants') }}";
+        const mensAfterShaveUrl = "{{ url_for('mens_afterShave') }}";
+        const faqUrl = "{{ url_for('faq') }}";
+        const aboutUsUrl = "{{ url_for('about_us') }}";
+        const deliveryUrl = "{{ url_for('delivery') }}";
+    </script>
+    <script type="module">
+        import { createNavbar } from "./static/js/nav.js";
+        createNavbar();  
+    </script>
+    <script type="module">
+        import { createFooter } from './static/js/footer.js';
+        createFooter();
+    </script>
+    <section class="w-3/4 mx-auto p-6 mt-10 pt-32">
+        <h1 class="text-3xl font-bold text-[#e02575] mb-6 text-center">Delivery</h1>
+        <h2 class="text-2xl font-semibold text-[#e02575] mb-4">Free Domestic Standard Shipping</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          We offer Free Domestic Standard Shipping within the 48 contiguous U.S. states (excluding Hawaii and Alaska).
+        </p>
+        <h3 class="text-xl font-semibold text-[#e02575] mb-3">Ship FREE with these easy steps:</h3>
+        <ul class="list-disc list-inside text-gray-700 mb-6">
+          <li>Place products in your Shopping Bag.</li>
+          <li>Proceed to checkout.</li>
+          <li>Enter your Shipping Destination and Shipping Method in your Shopping Bag and/or in Checkout.</li>
+          <li>Free Standard Ground Shipping will be applied to your order.</li>
+          <li>Place your order and enjoy!</li>
+        </ul>
+        <h2 class="text-2xl font-semibold text-[#e02575] mb-4">Processing Times</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Orders are shipped Monday-Friday, excluding holidays. Please allow up to 24 hours for order processing.
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          All orders are shipped with a tracking number & delivery confirmation.
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          <strong>All order information is FINAL!</strong> We cannot change the shipping address after an order is placed for any reason! Please be sure to use the correct address & payment method before checking out!
+        </p>
+        <h2 class="text-2xl font-semibold text-[#e02575] mb-4">Transit Times</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          We ship using FedEx, UPS, and US Postal Service for your convenience.
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">All packages are delivered Monday – Saturday.</p>
+        <ul class="list-disc list-inside text-gray-700 mb-4">
+          <li><strong>Standard:</strong> 2-8 Business Days</li>
+          <li><strong>Expedited:</strong> 2-4 Business Days</li>
+          <li><strong>2nd Day:</strong> 1-2 Business Days</li>
+        </ul>
+        <p class="text-[#e02575] leading-relaxed text-sm italic">
+          *Please be aware that any customs, fees, taxes, or duties are the responsibility of the buyer.
+        </p>
+    </section>
+    <script>
+        function openModal(itemId) {
+            document.getElementById(`modal-${itemId}`).classList.remove('hidden');
+        }
+
+        function closeModal(itemId) {
+            document.getElementById(`modal-${itemId}`).classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

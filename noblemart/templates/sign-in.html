@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign In to NobleMart!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        const homeUrl = "{{ url_for('home') }}";
+        const signInUrl = "{{ url_for('sign_in') }}";
+        const logoUrl = "{{ url_for('static', filename='img/logo.png') }}";
+        const mensFragranceUrl = "{{ url_for('mens_fragrances') }}";
+        const cartUrl = "{{ url_for('cart') }}";
+        const womensFragranceUrl = "{{ url_for('womens_fragrances') }}";
+        const womensGiftSetUrl = "{{ url_for('womens_giftSets') }}";
+        const mensGiftSetUrl = "{{ url_for('mens_giftSets') }}";
+        const mensDeodorantUrl = "{{ url_for('mens_deodorants') }}";
+        const womensDeodorantUrl = "{{ url_for('womens_deodorants') }}";
+        const mensAfterShaveUrl = "{{ url_for('mens_afterShave') }}";
+    </script>
+    <script type="module">
+        import { createNavbar } from "./static/js/nav.js";
+        createNavbar();  
+    </script>
+
+
+    <div class="flex items-center justify-center min-h-screen bg-white">
+        <div class="p-8 rounded-lg shadow-md w-full max-w-md bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600">
+            <form action="/sign-in" method="POST">
+                <div class="mb-6">
+                    <label for="username" class="block mb-2 text-sm font-medium text-white">Username</label>
+                    <input type="text" id="username" name="username" 
+                        class="bg-gray-50 border border-white text-white placeholder-white text-sm rounded-lg focus:ring-white focus:border-white block w-full p-2.5 dark:bg-gray-700 dark:border-white" 
+                        placeholder="Enter your username" required>
+                </div>
+        
+                <div class="mb-6">
+                    <label for="password" class="block mb-2 text-sm font-medium text-white">Password</label>
+                    <input type="password" id="password" name="password" 
+                        class="bg-gray-50 border border-white text-white placeholder-white text-sm rounded-lg focus:ring-white focus:border-white block w-full p-2.5 dark:bg-gray-700 dark:border-white" 
+                        placeholder="Enter your password" required>
+                </div>
+        
+                {% if error %}
+                    <p class="mt-2 text-sm text-red-500"><span class="font-medium">{{ error }}</span></p>
+                {% endif %}
+        
+                <button type="submit" 
+                    class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Login
+                </button>
+            </form>
+        </div>
+    </div>
+    <script type="module">
+        import { createFooter } from './static/js/footer.js';
+        createFooter();
+    </script>
+</body>
+</html>

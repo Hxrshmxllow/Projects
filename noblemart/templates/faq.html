@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        const homeUrl = "{{ url_for('home') }}";
+        const signInUrl = "{{ url_for('sign_in') }}";
+        const logoUrl = "{{ url_for('static', filename='img/logo.png') }}";
+        const mensFragranceUrl = "{{ url_for('mens_fragrances') }}";
+        const cartUrl = "{{ url_for('cart') }}";
+        const womensFragranceUrl = "{{ url_for('womens_fragrances') }}";
+        const womensGiftSetUrl = "{{ url_for('womens_giftSets') }}";
+        const mensGiftSetUrl = "{{ url_for('mens_giftSets') }}";
+        const mensDeodorantUrl = "{{ url_for('mens_deodorants') }}";
+        const womensDeodorantUrl = "{{ url_for('womens_deodorants') }}";
+        const mensAfterShaveUrl = "{{ url_for('mens_afterShave') }}";
+        const faqUrl = "{{ url_for('faq') }}";
+        const deliveryUrl = "{{ url_for('delivery') }}";
+    </script>
+    <script type="module">
+        import { createNavbar } from "./static/js/nav.js";
+        createNavbar();  
+    </script>
+    <script type="module">
+        import { createFooter } from './static/js/footer.js';
+        createFooter();
+    </script>
+   <section class="w-3/4 mx-auto p-6 mt-10 pt-32">
+        <h1 class="text-3xl font-bold text-center mb-8" style="color: #e02575;">FAQs</h1>
+    
+        <div class="faq-item mb-6">
+          <h2 class="text-xl font-semibold" style="color: #e02575;">Are your products authentic or fake?</h2>
+          <p class="text-gray-700 mt-2">
+            We sell only 100% genuine and authentic products. We only deal with trusted vendors and suppliers who purchase from the direct manufacturer or distributor. We inspect every product for quality and have a strict policy against counterfeit goods and stand 100% behind the products we sell. Your complete satisfaction is our goal. If you are not happy with the item you purchased due to these concerns, please contact our Customer Care team for an immediate remedy.
+          </p>
+        </div>
+    
+        <div class="faq-item mb-6">
+          <h2 class="text-xl font-semibold" style="color: #e02575;">Why are your prices lower compared to the department stores?</h2>
+          <p class="text-gray-700 mt-2">
+            We aim to be your trusted source for fragrances and beauty. We offer competitive prices on thousands of popular branded fragrances and beauty products. Our buyers negotiate for the best deals so that we can pass along the huge savings to our customers.
+          </p>
+        </div>
+    
+        <div class="faq-item mb-6">
+          <h2 class="text-xl font-semibold" style="color: #e02575;">Why do you sell samples and miniatures that say, "Not for Sale"?</h2>
+          <p class="text-gray-700 mt-2">
+            We sell a large selection of fragrance sample vials and miniature collectibles. Department stores may offer these samples or miniatures as freebies or gifts with purchase; however, we do not get these for free. We purchase these items from our suppliers due to high demand from our customers. These sample and miniature sizes are a great way to test a fragrance before you invest in a larger size. These sample and miniature sizes are also great for travel.
+          </p>
+        </div>
+    
+        <div class="faq-item mb-6">
+          <h2 class="text-xl font-semibold" style="color: #e02575;">Are your products genuine?</h2>
+          <p class="text-gray-700 mt-2">
+            All products sold by us are guaranteed to be 100% genuine, unused, and fresh. By utilizing alternative sourcing methods, we purchase new and popular products, in addition to products that are hard-to-find and discontinued. Neither the manufacturer nor Noblemart alters the product or packaging or removes or alters any UPC codes or serial numbers.
+          </p>
+        </div>
+    
+        <div class="faq-item mb-6">
+          <h2 class="text-xl font-semibold" style="color: #e02575;">Do you ship internationally?</h2>
+          <p class="text-gray-700 mt-2">No, at this moment we do not ship outside the USA.</p>
+        </div>
+    
+        <div class="faq-item mb-6">
+          <h2 class="text-xl font-semibold" style="color: #e02575;">Do you ship to APO/FPO?</h2>
+          <p class="text-gray-700 mt-2">No, at this moment we do not ship to APO/FPO addresses.</p>
+        </div>
+    
+        <div class="faq-item mb-6">
+          <h2 class="text-xl font-semibold" style="color: #e02575;">Why do some fragrances seem to last much longer than others?</h2>
+          <p class="text-gray-700 mt-2">
+            People with dry skin usually find their fragrance holding time shorter than those with oily skin because oily skin has more natural moisture to hold in the fragrance. PH levels (amount of acidity in our skin) also vary slightly from person to person. Our individual levels of PH will determine how each ingredient in a fragrance will react.
+          </p>
+        </div>
+    
+        <div class="faq-item mb-6">
+          <h2 class="text-xl font-semibold" style="color: #e02575;">How can I make my scent last longer?</h2>
+          <p class="text-gray-700 mt-2">
+            Fragrance lasts longer on some people than on others due to differences in our skin (oily or dry) and in our PH levels. To achieve a longer effect, try layering your fragrance by using fragrance bath gel, moisturizer or powder, and then the Eau de Toilette, Eau de Parfum, or Eau de Cologne.
+          </p>
+        </div>
+    
+        <div class="faq-item mb-6">
+          <h2 class="text-xl font-semibold" style="color: #e02575;">Why does fragrance contain alcohol?</h2>
+          <p class="text-gray-700 mt-2">Alcohol makes the fragrance emanate from your skin. Without alcohol, you would be the only person who knew you were wearing any fragrance at all.</p>
+        </div>
+    
+        <div class="faq-item mb-6">
+          <h2 class="text-xl font-semibold" style="color: #e02575;">What are the Fragrance Abbreviations?</h2>
+          <p class="text-gray-700 mt-2">
+            EDT: Eau de Toilette <br>
+            EDP: Eau de Parfum <br>
+            EDC: Eau De Cologne <br>
+            C/S: Cologne Spray <br>
+            A/S: After-Shave <br>
+            S/G: Shower Gel <br>
+            B/L: Body Lotion
+          </p>
+        </div>
+    
+        <div class="faq-item mb-6">
+          <h2 class="text-xl font-semibold" style="color: #e02575;">What is the difference between Eau de Toilette and Eau de Parfum?</h2>
+          <p class="text-gray-700 mt-2">
+            Perfume is composed of natural or synthetic fragrant oil extracts diluted in water and high-grade alcohol. The composition of these oil extracts determines the concentration or "strength" of the fragrance and the lasting power of the scent.
+          </p>
+        </div>
+    
+        <!-- Add more FAQ items as needed -->
+    
+    </section>
+    <script>
+        function openModal(itemId) {
+            document.getElementById(`modal-${itemId}`).classList.remove('hidden');
+        }
+
+        function closeModal(itemId) {
+            document.getElementById(`modal-${itemId}`).classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        const homeUrl = "{{ url_for('home') }}";
+        const signInUrl = "{{ url_for('sign_in') }}";
+        const logoUrl = "{{ url_for('static', filename='img/logo.png') }}";
+        const mensFragranceUrl = "{{ url_for('mens_fragrances') }}";
+        const cartUrl = "{{ url_for('cart') }}";
+        const womensFragranceUrl = "{{ url_for('womens_fragrances') }}";
+        const womensGiftSetUrl = "{{ url_for('womens_giftSets') }}";
+        const mensGiftSetUrl = "{{ url_for('mens_giftSets') }}";
+        const mensDeodorantUrl = "{{ url_for('mens_deodorants') }}";
+        const womensDeodorantUrl = "{{ url_for('womens_deodorants') }}";
+        const mensAfterShaveUrl = "{{ url_for('mens_afterShave') }}";
+        const faqUrl = "{{ url_for('faq') }}";
+        const aboutUsUrl = "{{ url_for('about_us') }}";
+        const deliveryUrl = "{{ url_for('delivery') }}";
+    </script>
+    <script type="module">
+        import { createNavbar } from "./static/js/nav.js";
+        createNavbar();  
+    </script>
+    <script type="module">
+        import { createFooter } from './static/js/footer.js';
+        createFooter();
+    </script>
+    <section class="w-3/4 max-w-3xl mx-auto p-8 pt-32">
+        <h1 class="text-3xl font-bold text-[#e02575] mb-6">About Us</h1>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          We are a family-run company and have been in business since 2003. We aim to offer 100% customer satisfaction through low prices, our huge variety, and excellent customer service. We are adding new products on a regular basis, and we work to maintain the site on a regular basis by constantly monitoring and updating product information.
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          We sell authentic brand name perfumes and cosmetics for both women and men. We ship to any destination in the USA. We specialize in fragrances, selling major designer fragrance brands, classic and celebrity perfumes, body products, etc.
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          We have confidence in our high-quality products and our excellent customer service every time you shop. We offer a money-back guarantee. Customer satisfaction is our #1 priority. Our Customer Care team is always available to help answer any of your questions.
+        </p>
+      </section>
+    <script>
+        function openModal(itemId) {
+            document.getElementById(`modal-${itemId}`).classList.remove('hidden');
+        }
+
+        function closeModal(itemId) {
+            document.getElementById(`modal-${itemId}`).classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome to NobleMart!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        const adminHomeUrl = "{{ url_for('admin_dashboard') }}";
+        const homeUrl = "{{ url_for('home') }}";
+        const ordersUrl = "{{ url_for('admin_orders') }}";
+        const upcUrl = "{{ url_for('upc_lookup') }}";
+        const inventoryUrl =  "{{ url_for('view_inventory') }}"
+        const logoUrl = "{{ url_for('static', filename='img/logo.png') }}";
+    </script>
+    <script type="module">
+        import { createNavbar } from "./static/js/admin-nav.js";
+        createNavbar();  
+    </script>
+    <div class="min-h-screen flex items-center justify-center bg-white dark:white">
+        <div class="max-w-md mx-auto mt-12 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg p-6 shadow-lg">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">Search by UPC Code</h2>
+            <form action="{{ url_for('upc_lookup') }}" method="POST" class="space-y-4">
+                <div>
+                    <label for="upc" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">UPC Code</label>
+                    <input type="text" id="upc" name="upc" placeholder="Enter UPC Code" 
+                        class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 
+                        focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+                        dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                </div>
+                
+                <button type="submit" 
+                    class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
+                    font-medium rounded-lg text-sm px-4 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Search Product
+                </button>
+            </form>
+        </div>
+    </div>
+    <script type="module">
+        import { createFooter } from './static/js/footer.js';
+        createFooter();
+    </script>
+</body>
+</html>
