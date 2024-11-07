@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to NJ Transit Lost and Found</title>
+    
+    <!-- Import Tailwind CSS and Roboto Condensed font -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body class="bg-[#091A28] flex items-center justify-start min-h-screen">
+    <nav class="w-full p-4 bg-nj-blue flex items-center justify-between fixed top-0 left-0 z-10">
+        <!-- Logo on the left -->
+        <div class="flex items-center">
+            <a href="{{ url_for('index') }}" target="_blank">
+                <img src="{{ url_for('static', filename='img/nj_transit_logo.png') }}" alt="NJ TRANSIT Logo" class="logo">
+            </a>
+        </div>
+
+        <!-- Navigation links on the right -->
+        <div class="space-x-6 text-white font-semibold">
+            <a href="{{ url_for('sign_in') }}" class="hover-txt-nj-yellow">Employee Portal</a>
+            <a href="{{ url_for('report_claim') }}" class="hover-txt-nj-yellow">Report A Claim</a>
+        </div>
+    </nav>
+
+    <!-- Main content centered in the page -->
+    <div class="text-center text-white space-y-4 content ml-10"> <!-- Added content class -->
+        <!-- Heading with slide-up animation -->
+        <h1 class="text-3xl font-bold slide-up text-nj-yellow">Welcome to the NJ Transit Lost and Found</h1>
+        
+        <!-- Description with slide-up animation -->
+        <p class="text-lg slide-up" style="animation-delay: 0.2s;">Have you lost anything precious to you on our trains, buses, or light rail?</p>
+        <p class="text-lg slide-up" style="animation-delay: 0.2s;">Do not worry! We got you covered.</p>
+        <p class="text-lg slide-up" style="animation-delay: 0.2s;">Just search through our portal or Report a claim.</p>
+        
+        <!-- Button with fade-in animation -->
+        <a href="{{ url_for('lost_item') }}" 
+            class="px-6 py-2 text-nj-yellow bg-nj-blue hover:bg-nj-yellow font-semibold rounded-md focus:outline-none focus:ring-2 focus-ring-nj-blue fade-in"
+            style="animation-delay: 0.5s;">
+            Find a lost item
+        </a>
+    </div>
+</body>
+</html>

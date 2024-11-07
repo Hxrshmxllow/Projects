@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Status</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function validateClaimStatus() {
+            const claimID = document.getElementById('claim-id').value;
+            const claimIDPattern = /^\d{10}$/;
+
+            if (!claimIDPattern.test(claimID)) {
+                alert('Claim ID must be 10 digits.');
+                return;
+            }
+
+            if (claimID === '1234567890') { // Example claim ID for testing
+                alert('Claim Status Accessed');
+            } else {
+                alert('Invalid Claim ID');
+            }
+        }
+    </script>
+</head>
+<body class="bg-white min-h-screen flex flex-col font-sans">
+    <!-- Fixed Header with NJ TRANSIT blue and logo -->
+    <header class="bg-[#002D72] w-full py-4 fixed top-0 z-10">
+        <div class="container mx-auto px-4 flex justify-start">
+            <a href="{{ url_for('index') }}" target="_blank">
+                <img src="{{ url_for('static', filename='img/nj_transit_logo.png') }}" alt="NJ TRANSIT Logo" class="logo">
+            </a>
+        </div>
+    </header>
+
+    <!-- Form Container -->
+    <div class="flex-grow flex items-center justify-center mt-20">
+        <div class="bg-gray-100 p-10 border-2 border-[#002D72] rounded-lg w-[400px] text-center">
+            <!-- Claim Status Title -->
+            <h2 class="text-2xl font-bold text-[#FFCB05] mb-6">Claim Status</h2>
+            <form class="space-y-4" onsubmit="event.preventDefault(); validateClaimStatus();">
+                <!-- Claim ID Input -->
+                <div class="flex flex-col items-start">
+                    <label for="claim-id" class="text-[#002D72] text-lg mb-2">Claim ID</label>
+                    <input 
+                        type="text" 
+                        id="claim-id" 
+                        class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#FFCB05] focus:border-transparent"
+                        placeholder="Enter your 10-digit Claim ID" 
+                        maxlength="10" 
+                        pattern="\d{10}" 
+                        required>
+                </div>
+                <!-- Submit Button -->
+                <button 
+                    type="submit" 
+                    class="w-full bg-[#002D72] text-white py-3 rounded font-bold hover:bg-[#FFCB05] transition">
+                    Check Status
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
