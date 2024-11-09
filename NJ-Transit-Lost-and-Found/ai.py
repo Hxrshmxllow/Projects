@@ -1,7 +1,7 @@
 import base64
 from openai import OpenAI
 
-client = OpenAI(api_key='sk-75ippQsXjIhFJG1eanGzd2ywJIhNKSAl0Uh7q-m-nUT3BlbkFJvZyRIyiMHNiq1V97fMiegsRlp6k30E1ImctF-ysaYA')
+client = OpenAI(api_key='')
 
 # Function to encode the image
 def encode_image(image_path):
