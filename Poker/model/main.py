@@ -1,9 +1,9 @@
 import torch
 import pandas as pd
 from torch.utils.data import DataLoader, Dataset
-from model import PokerModel
-from train import train_model
-from evaluate import evaluate_model
+from model.model import PokerModel
+from model.train import train_model
+from model.evaluate import evaluate_model
 
 # 1. Load and Preprocess the CSV Data
 data = pd.read_csv("game_log.csv")

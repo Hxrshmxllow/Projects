@@ -1,0 +1,282 @@
+.table-container{
+    background-size: cover;     
+    background-position: center; 
+    background-repeat: no-repeat; 
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;  
+    justify-content: center;
+}
+
+.community-cards{
+    width: 380px;
+    height: 160px;
+    gap: 25px;
+    display: flex;
+    align-items: center;  
+    justify-content: center;
+    position: absolute;
+}
+
+.pot{
+    position: absolute;
+    top: 500px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-weight: bold;
+}
+
+.card{
+    background-size: cover;     
+    background-position: center; 
+    background-repeat: no-repeat; 
+    width: 110px;
+    height: 160px;
+}
+
+.roundContainer{
+    position: absolute; 
+    bottom: 75px; 
+    left: 75px;
+    width: 250px; 
+    height: 100px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playerContainer{
+    position: absolute; 
+    bottom: 75px; 
+    right: 75px;
+    width: 700px; 
+    height: 200px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playerCardContainer{
+    gap: 15px;
+    display: flex;
+    height: 120px;
+    width: 200px;
+    position: absolute;
+    right: 100px;
+    bottom: 30px;
+}
+
+.playerCard{
+    background-size: cover;     
+    background-position: center; 
+    background-repeat: no-repeat; 
+    width: 80px;
+    height: 120px;
+    border-radius: 4px;
+    border-color: white;
+}
+
+.playerName{
+    position: absolute;
+    right: 10px;
+    bottom: 90px;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.playerMoney{
+    position: absolute;
+    right: 10px;
+    bottom: 50px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.optionsContainer{
+    width: 345px;
+    height: 50px;
+    left: 10px;
+    position: absolute;
+    display: flex;
+    gap: 20px;
+    bottom: 40px;
+    position: absolute;
+}
+
+.callButton {
+    width: 100px; 
+    height: 50px;
+    border-radius: 10px;
+    border: none; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 0 15px darkgreen;
+    border: 2px solid darkgreen;
+    color: white;
+    font-size: 18px; 
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out; 
+}
+
+.callButton:hover {
+    border-color: green;
+    transform: scale(1.1); 
+}
+
+.callButton:active {
+    border-color: green;
+    transform: scale(0.95);
+}
+
+.raiseButton {
+    width: 100px; 
+    height: 50px;
+    border-radius: 10px;
+    border: none; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 0 15px darkblue;
+    border: 2px solid darkblue;
+    color: white;
+    font-size: 18px; 
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out; 
+}
+
+.raiseButton:hover {
+    border-color: blue;
+    transform: scale(1.1); 
+}
+
+.raiseButton:active {
+    border-color: blue;
+    transform: scale(0.95);
+}
+
+.foldButton {
+    width: 100px; 
+    height: 50px;
+    border-radius: 10px;
+    border: none; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 0 15px darkred;
+    border: 2px solid darkred;
+    color: white;
+    font-size: 18px; 
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out; 
+}
+
+.foldButton:hover {
+    border-color: red;
+    transform: scale(1.1); 
+}
+
+.foldButton:active {
+    border-color: red;
+    transform: scale(0.95);
+}
+
+.aiContainer{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 350px;
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.aiCardContainer {
+    gap: 15px;
+    display: flex;
+    height: 120px;
+    width: 200px;
+    position: absolute;
+    right: 0px;
+}
+
+.aiCard {
+    width: 80px;
+    height: 120px;
+    perspective: 1000px; 
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Enables flipping */
+}
+
+.aiCard.flipped .card-inner {
+    transform: rotateY(180deg); /* Flips the card */
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden; 
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-back {
+    transform: rotateY(0deg);
+}
+
+.card-front {
+    transform: rotateY(180deg); 
+}
+
+.aiName{
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.aiMoney{
+    position: absolute;
+    left: 10px;
+    top: 40px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.aiMove{
+    position: absolute;
+    left: 10px;
+    top: 70px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: green;
+}
+
+.start-game-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.start-game-button:hover {
+    background-color: darkcyan;
+}

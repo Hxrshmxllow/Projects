@@ -2,10 +2,11 @@ import random
 import csv
 from collections import Counter
 from treys import Card as TreysCard, Evaluator
-import openai
+from openai import OpenAI
+
+client = OpenAI(api_key='')
 import os
 
-openai.api_key = ''
 
 class Poker():
     suits = ["Spade", "Heart", "Club", "Diamond"]
@@ -27,7 +28,7 @@ class Poker():
         for player in self.players:
             player.hand = []
         self.deck = [Card(suit, rank, Poker.ranks.index(rank) + 1) for suit in Poker.suits for rank in Poker.ranks]
-    
+
     def log_game_state(self):
         suit_mapping = {"Spade": 1, "Heart": 2, "Club": 3, "Diamond": 4}
         rank_mapping = {
@@ -150,18 +151,16 @@ class Poker():
             return -1  # Return -1 to indicate an evaluation error
 
         return hand_strength
-    
+
     def get_gpt_action(self, gamePrompt):
-        response = openai.ChatCompletion.create(
-        model="gpt-4",
+        response = client.chat.completions.create(model="gpt-4",
         messages=[
             {"role": "system", "content": "You are a poker player deciding whether to raise, call, or fold."},
             {"role": "user", "content": gamePrompt}
         ],
         max_tokens=50,
-        temperature=0.7
-        )
-        decision = response['choices'][0]['message']['content'].strip()
+        temperature=0.7)
+        decision = response.choices[0].message.content.strip()
         if "raise" in decision.lower():
             return 1
         elif "call" in decision.lower():
@@ -170,7 +169,7 @@ class Poker():
             return 3
         else:
             return 3
-    
+
     def blind(self):
         self.players.reverse()
         blind = 10.00
@@ -274,7 +273,7 @@ class Poker():
                 if player == self.players[1] and self.potRaised:
                     return self.bet(True, player)
             return False
-    
+
     def preFlop(self):
         self.round = "Pre-Flop"
         self.pot = 0.00
@@ -290,7 +289,7 @@ class Poker():
         self.printGame()
         self.log_game_state()
         return self.bet(False, None)
-    
+
     def flop(self):
         self.round = "Flop"
         for i in range(3):
@@ -300,7 +299,7 @@ class Poker():
         self.printGame()
         self.log_game_state()
         return self.bet(False, None)
-    
+
     def turn(self):
         self.round = "Turn"
         card = random.choice(self.deck)
@@ -321,7 +320,7 @@ class Poker():
         else:
             self.checkWin()
             return 
-        
+
     def save_game_log_to_csv(self, filename="game_log.csv"):
         with open(filename, mode='w', newline='') as file:
             writer = csv.writer(file)
@@ -339,7 +338,7 @@ class Poker():
             for entry in self.game_log:
                 writer.writerow(entry)
         print(f"Game log saved to {filename}")
-    
+
     def checkWin(self):
         for player in self.players:
             if player.name == "AI":
@@ -381,7 +380,7 @@ class Poker():
             if most_common_count >= 5 and player.points < 5:
                 player.points = 5
 
-        
+
 
 
 class Card():

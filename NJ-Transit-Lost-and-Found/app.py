@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, flash
-from firebase_admin import credentials, firestore, storage
-from firebase import upload_item, search_items
+#from firebase_admin import credentials, firestore, storage
+#from firebase import upload_item, search_items
 from werkzeug.utils import secure_filename
 import jsonify
 from ai import *
@@ -10,8 +10,6 @@ import mimetypes
 import subprocess
 from PIL import Image
 import pyheif
-
-
 
 
 # Ensure the upload folder exists
