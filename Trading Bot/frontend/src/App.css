@@ -1,0 +1,126 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: #121212;
+  padding: 100px;
+}
+
+.top_container{
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.search_container{
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 250px;
+  height: 450px;
+  border-radius: 25px;
+  position: absolute;
+  z-index: 3;
+}
+
+.search_input{
+  width: 100%;
+  height: 40px; 
+  border-radius: 25px;
+  background-color: #121212;
+  color: white;
+  padding-left: 10px;
+  border: none;
+  z-index: 4;
+}
+
+.chart-background {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  z-index: 1; 
+  pointer-events: none;
+}
+
+.suggestions {
+  z-index: 2;
+  position: absolute;
+  top: 45px; 
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  max-height: 200px; 
+  overflow-y: auto; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.suggestions ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestions li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.suggestions li:hover {
+  background-color: #f0f0f0;
+}
+
+.current_stock_container{
+  flex: 1.75;
+  height: 410px;
+  border-radius: 25px;
+  background-color: rgba(65, 65, 65, 0.692);
+  padding: 20px;
+  position: relative;
+}
+
+.current_holdings_container{
+  flex: 1.25;
+  height: 450px;
+  border-radius: 25px;
+  background-color: rgba(65, 65, 65, 0.692);
+}
+
+.bottom_container{
+  flex: 1;
+  height: 450px;
+}
+
+.balance_container{
+  height: 150px;
+  border-radius: 25px;
+  background-color: rgba(65, 65, 65, 0.692);
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center;
+}
+
+.buying_power_container{
+  margin-top: 20px;
+  height: 280px;
+  border-radius: 25px;
+  background-color: rgba(65, 65, 65, 0.692);
+}
+
+.transaction_container{
+  margin-top: 20px;
+  width: 100%;
+  height: 250px;
+  border-radius: 25px;
+  background-color: rgba(65, 65, 65, 0.692);
+}
+
+.balance_amount{
+  color: white;
+}
+
+.balance_text{
+  color: white;
+}

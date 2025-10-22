@@ -1,7 +1,5 @@
-from TradingEnv import StockTradingEnv
+from old.TradingEnv import StockTradingEnv
 from pybroker import YFinance
-import pybroker
-pybroker.enable_data_source_cache('yfinance')
 import pandas as pd
 from stable_baselines3 import PPO
 
@@ -10,6 +8,12 @@ df = yfinance.query(['AAPL'], start_date='10/13/2023', end_date='10/13/2024')
 df['date'] = pd.to_datetime(df['date']).dt.date
 env = StockTradingEnv(df, initial_balance=100000, commission_fee=0.0001, slippage_cost=0.005)
 
-model = PPO("MlpPolicy", env, verbose=0)
-model.learn(total_timesteps=100_000, progress_bar=True)
-model.save("ppo_aapl")
+model = PPO.load("ppo_aapl", env=env)
+
+vec_env = model.get_env()
+obs = vec_env.reset()
+for i in range(len(df['adj_close'])):
+    action, _state = model.predict(obs)
+    obs, reward, done, info = vec_env.step(action)
+
+env.render_all()
